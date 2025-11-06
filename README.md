@@ -63,11 +63,23 @@ Option B — run a producer inside a container that can use the internal broker 
 .\consume_topic.bat
 ```
 
-5) Start the Spark job (run this inside the spark-master container)
+5) Start the Spark job (two options)
+
+Option A — run the job inside the existing spark-master container (recommended when the cluster is already up):
 
 ```powershell
 docker compose exec spark-master bash -lc "/opt/spark/bin/spark-submit --conf spark.jars.ivy=/tmp/.ivy2 --master spark://spark-master:7077 --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.2 /opt/spark-apps/process_weather.py"
 ```
+
+Option B — run a one-off spark-submit using `docker compose run` (this starts a temporary container from the `spark-master` service):
+
+```powershell
+docker compose run --rm spark-master bash -lc "/opt/spark/bin/spark-submit --conf spark.jars.ivy=/tmp/.ivy2 --master spark://spark-master:7077 --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.2 /opt/spark-apps/process_weather.py"
+```
+
+Notes:
+- Use Option A when the compose stack (master+workers) is already running. Option B is useful if you want to start a fresh temporary task without attaching to the running master shell.
+- Both commands submit the same job and rely on the `spark-apps` and `data` mounts defined in `docker-compose.yml` so the job can read the app code and write output to `data/`.
 
 6) Check the cleaned output
 
