@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="260" viewBox="0 0 900 260">
+  <rect x="10" y="30" width="260" height="80" rx="8" fill="#f8f9fa" stroke="#0b5cff" stroke-width="2" />
+  <text x="30" y="60" font-family="Arial" font-size="14" fill="#0b5cff">External Source</text>
+  <text x="30" y="82" font-family="Arial" font-size="12" fill="#333">(HTTP / File / Sensor)</text>
+
+  <rect x="320" y="20" width="220" height="100" rx="8" fill="#fff7ed" stroke="#ff8c00" stroke-width="2" />
+  <text x="355" y="50" font-family="Arial" font-size="14" fill="#ff8c00">Apache NiFi</text>
+  <text x="340" y="72" font-family="Arial" font-size="12" fill="#333">ListenHTTP → ConvertRecord → PublishKafka</text>
+
+  <rect x="660" y="30" width="220" height="80" rx="8" fill="#eef9f1" stroke="#0bbf3b" stroke-width="2" />
+  <text x="690" y="60" font-family="Arial" font-size="14" fill="#0bbf3b">Kafka (topic: weather_raw)</text>
+
+  <line x1="270" y1="70" x2="320" y2="70" stroke="#333" stroke-width="2" marker-end="url(#arrow)" />
+  <line x1="540" y1="70" x2="660" y2="70" stroke="#333" stroke-width="2" marker-end="url(#arrow)" />
+
+  <!-- Spark side -->
+  <rect x="320" y="140" width="220" height="80" rx="8" fill="#eef6ff" stroke="#0b5cff" stroke-width="2" />
+  <text x="350" y="170" font-family="Arial" font-size="14" fill="#0b5cff">Spark Structured Streaming</text>
+  <text x="350" y="190" font-family="Arial" font-size="12" fill="#333">readStream(format="kafka") → parse & clean</text>
+
+  <rect x="660" y="140" width="220" height="80" rx="8" fill="#fff" stroke="#6f42c1" stroke-width="2" />
+  <text x="690" y="170" font-family="Arial" font-size="14" fill="#6f42c1">/data/clean_weather</text>
+  <text x="690" y="190" font-family="Arial" font-size="12" fill="#333">cleaned CSV output</text>
+
+  <line x1="775" y1="110" x2="775" y2="140" stroke="#333" stroke-width="2" marker-end="url(#arrow)" />
+  <line x1="780" y1="110" x2="780" y2="140" stroke="#333" stroke-width="0" />
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="10" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#333" />
+    </marker>
+  </defs>
+</svg>

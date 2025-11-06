@@ -1,0 +1,1 @@
+@echo off REM Create topic 'weather_raw' docker-compose exec kafka kafka-topics.sh --create --topic weather_raw --bootstrap-server localhost:9092 --partitions 1 --replication-factor 1 echo Topic 'weather_raw' creation attempted.

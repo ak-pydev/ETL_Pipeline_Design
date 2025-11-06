@@ -1,0 +1,1 @@
+@echo off REM Consume messages from 'weather_raw' docker-compose exec kafka kafka-console-consumer.sh --topic weather_raw --bootstrap-server localhost:9092 --from-beginning --timeout-ms 10000
