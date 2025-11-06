@@ -58,29 +58,11 @@ See the diagram: `nifi_flow_diagram.svg`.
 - If Spark can’t download Kafka packages, make sure the spark container has internet access.
 - If Spark can’t write files, make sure the `data/` folders exist and have correct permissions.
 
-## Diagrams
-
-Overall NiFi flow:
-
-![NiFi flow diagram](./nifi_flow_diagram.svg)
 
 NiFi → Kafka → Spark detail:
 
 ![NiFi to Spark connection](./nifi_to_spark.svg)
 
----
-
-PNG references
-
-Below are PNG references for quick preview. These are embedded placeholders. If you have full-resolution PNGs you can replace the data-URIs or add files next to the SVGs.
-
-Overall NiFi flow (PNG placeholder):
-
-![NiFi flow diagram - PNG](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAIAAACzV0wLAAAACXBIWXMAAAsTAAALEwEAmpwYAAABG0lEQVR4nO3RAQ0AAAjDMO5fNPoHBh0DBmM3AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD8G0EAAcTg8wAAAABJRU5ErkJggg==)
-
-NiFi → Spark detail (PNG placeholder):
-
-![NiFi to Spark - PNG](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAIAAACzV0wLAAAACXBIWXMAAAsTAAALEwEAmpwYAAABG0lEQVR4nO3RAQ0AAAjDMO5fNPoHBh0DBmM3AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD8G0EAAcTg8wAAAABJRU5ErkJggg==)
 
 ## Simple checklist to connect NiFi with this repo
 

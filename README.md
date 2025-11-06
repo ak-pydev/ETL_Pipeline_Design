@@ -1,5 +1,3 @@
-docker compose up -d
-docker compose exec spark-master bash -lc "/opt/spark/bin/spark-submit --conf spark.jars.ivy=/tmp/.ivy2 --master spark://spark-master:7077 --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.2 /opt/spark-apps/process_weather.py"
 # Weather Kafka → Spark ETL
 
 I built a small demo that shows how to move weather data from Kafka into Spark, clean it, and save the cleaned results as CSV files.
